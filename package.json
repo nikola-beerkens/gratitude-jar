@@ -1,0 +1,25 @@
+{
+  "name": "gratitude-jar",
+  "version": "1.0.0",
+  "description": "A cozy pixel-style gratitude jar that lets you store and reflect on daily moments of thankfulness, brought to life with glowing orbs, dreamy visuals, and gentle charm.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikola-beerkens/gratitude-jar.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nikola-beerkens/gratitude-jar/issues"
+  },
+  "homepage": "https://github.com/nikola-beerkens/gratitude-jar#readme",
+  "devDependencies": {
+    "electron": "^35.1.5"
+  },
+  "dependencies": {
+    "electron-log": "^5.3.3"
+  }
+}

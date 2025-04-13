@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gratitude Jar</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="box">
+    <div class="title">
+      <div class="title-name">Gratitude jar</div>
+      <div class="close-btn" onclick="window.close();">
+        <div class="close-icon">x</div>
+      </div>
+    </div>
+    <div class="content">
+      <input type="text" placeholder="Type here ..." class="input-box" id="gratitudeInput">
+      <button id="submitBtn">Submit</button>
+    </div>
+    
+    <div class="jar-area">
+      <div class="orb-container" id="orbContainer"></div>
+      <!-- <img src="assets/jar.png" alt="Pixel Jar" class="jar" /> -->
+      <img src="assets/ghost.png" alt="Pixel Ghost" class="ghost" />
+      <div class="ghost-orb"></div>
+    </div>
+  </div>
+  <script src="./orbLogic.js"></script>
+</body>
+
+</html>
