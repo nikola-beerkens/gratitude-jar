@@ -89,6 +89,7 @@
     font-size: 16px;
     text-align: center;
     border:none;
+    z-index: 10;
   }
   
   /* Jar Area */
@@ -96,6 +97,7 @@
     position: relative;
     margin-top: 20px;
     height: 330px;
+    z-index: 1;
   }
   
   .jar {
@@ -104,7 +106,7 @@
     left: 70px;
     position: absolute;
     overflow: hidden;
-    
+    z-index: 2;
   }
   
   .ghost {
@@ -123,18 +125,6 @@
     width: 110px;
     height:170px;
     pointer-events: none; /* so it doesn’t block clicks */
-  }
-  
-  
-  .orb {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #ffffff;
-    filter: blur(2px);
-    pointer-events: none;
-    opacity: 0.9;
   }
   
   .orb.pink {
@@ -158,7 +148,13 @@
     right: 97px;
   }
   
-  .orb::after {
+  .orb-wrapper {
+    position: absolute;
+    pointer-events: auto;
+    z-index: 4;
+  }
+  
+  .orb-wrapper::after {
     content: attr(data-message);
     position: absolute;
     bottom: 150%;
@@ -173,13 +169,22 @@
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.2s ease;
-    z-index: 10;
+    z-index: 9999;
     font-family: 'Pixelify Sans', sans-serif;
     box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    filter: none; /* ensure sharpness */
   }
   
-  .orb:hover::after {
+  .orb-wrapper:hover::after {
     opacity: 1;
   }
   
-  
+  .orb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    filter: blur(2px); /* Only this element is blurred */
+    opacity: 0.9;
+    pointer-events: none;
+  }

@@ -1,3 +1,5 @@
+const log = require('electron-log');
+
 document.addEventListener("DOMContentLoaded", () => {
   const orbContainer = document.getElementById("orbContainer");
   const input = document.getElementById("gratitudeInput");
@@ -12,32 +14,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const ORB_SIZE = 12;
 
   function createOrb(message) {
+    const orbWrapper = document.createElement("div");
+    orbWrapper.classList.add("orb-wrapper");
+    orbWrapper.setAttribute("data-message", message);
+  
     const orb = document.createElement("div");
     orb.classList.add("orb");
-
-    // Store message as data attribute (could be shown on hover later)
-    orb.setAttribute("data-message", message);
-
-    // Position inside bounds
+    orbWrapper.appendChild(orb);
+    orbContainer.appendChild(orbWrapper);
+  
     const x = Math.random() * (orbContainer.clientWidth - ORB_SIZE);
     const y = Math.random() * (orbContainer.clientHeight - ORB_SIZE);
-    orb.style.left = `${x}px`;
-    orb.style.top = `${y}px`;
-
-    // Assign random glow color
+    orbWrapper.style.left = `${x}px`;
+    orbWrapper.style.top = `${y}px`;
+  
     const glowColor = colors[Math.floor(Math.random() * colors.length)];
     orb.style.boxShadow = `0 0 8px 8px ${glowColor}`;
-
-    orbContainer.appendChild(orb);
-
-    orbs.push({
-      el: orb,
+  
+    const orbData = {
+      el: orbWrapper,
       x,
       y,
       vx: (Math.random() - 0.5) * 1.5,
-      vy: (Math.random() - 0.5) * 1.5
+      vy: (Math.random() - 0.5) * 1.5,
+      paused: false
+    };
+  
+    // Pause on hover
+    orbWrapper.addEventListener("mouseenter", () => {
+      orbData.paused = true;
     });
+    orbWrapper.addEventListener("mouseleave", () => {
+      orbData.paused = false;
+    });
+  
+    orbs.push(orbData);
   }
+  
 
   submitBtn.addEventListener("click", () => {
     const value = input.value.trim();
@@ -55,25 +68,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function animate() {
     for (let orb of orbs) {
+      if (orb.paused) continue;
+  
       orb.x += orb.vx;
       orb.y += orb.vy;
-
+  
       if (orb.x <= 0 || orb.x >= orbContainer.clientWidth - ORB_SIZE) {
         orb.vx *= -1;
         orb.x = Math.max(0, Math.min(orb.x, orbContainer.clientWidth - ORB_SIZE));
       }
-
+  
       if (orb.y <= 0 || orb.y >= orbContainer.clientHeight - ORB_SIZE) {
         orb.vy *= -1;
         orb.y = Math.max(0, Math.min(orb.y, orbContainer.clientHeight - ORB_SIZE));
       }
-
+  
       orb.el.style.left = `${orb.x}px`;
       orb.el.style.top = `${orb.y}px`;
     }
-
+  
     requestAnimationFrame(animate);
   }
+  
 
   animate();
 });
