@@ -3,23 +3,29 @@
   "version": "1.0.0",
   "description": "A cozy pixel-style gratitude jar that lets you store and reflect on daily moments of thankfulness, brought to life with glowing orbs, dreamy visuals, and gentle charm.",
   "main": "main.js",
+  "author": "Nikola Beerkens",
+  "license": "ISC",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nikola-beerkens/gratitude-jar.git"
+  "build": {
+    "appId": "com.teggl.gratitudejar",
+    "productName": "Gratitude Jar",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "directories": {
+      "buildResources": "build"
+    }
   },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nikola-beerkens/gratitude-jar/issues"
-  },
-  "homepage": "https://github.com/nikola-beerkens/gratitude-jar#readme",
   "devDependencies": {
-    "electron": "^35.1.5"
+    "electron": "^35.1.4",
+    "electron-builder": "^24.13.2"
   },
   "dependencies": {
-    "electron-log": "^5.3.3"
+    "electron-log": "^5.3.3",
+    "electron-store": "^10.0.1"
   }
 }
