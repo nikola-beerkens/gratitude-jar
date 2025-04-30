@@ -12,7 +12,6 @@ Write what you're grateful for, drop it into your magical jar, and watch your ja
 - 🌈 Add daily gratitude entries as glowing pixel orbs
 - 💖 See your jar slowly fill with positive thoughts
 - 🌟 Tooltips or hover to revisit what each orb holds
-- 🎶 Optional ambient vibes (rain, lo-fi, etc.)
 
 ---
 
@@ -26,7 +25,7 @@ Write what you're grateful for, drop it into your magical jar, and watch your ja
 
 ## 🌼 How to Use
 
-1. Open the app in your browser  
+1. Open the app
 2. Type something you're grateful for (big or small!)  
 3. Hit Enter or Submit — watch your orb pop into the jar ✨  
 4. Hover or click to revisit old entries  
