@@ -3,7 +3,7 @@
 A cozy little pixel-style app for collecting daily moments of thankfulness, one glowing orb at a time.  
 Write what you're grateful for, drop it into your magical jar, and watch your jar fill up with soft, colorful joy.
 
-![Gratitude Jar Screenshot](screenshot.png)
+![Gratitude Jar Screenshot](assets/screenshot.png)
 
 ---
 

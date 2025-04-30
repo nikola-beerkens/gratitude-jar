@@ -1,7 +1,7 @@
 {
   "name": "gratitude-jar",
-  "version": "1.0.0",
-  "description": "A cozy pixel-style gratitude jar that lets you store and reflect on daily moments of thankfulness, brought to life with glowing orbs, dreamy visuals, and gentle charm.",
+  "version": "1.0.1",
+  "description": "A gratitude jar that lets you store and reflect on daily moments of thankfulness.",
   "main": "main.js",
   "author": "Nikola Beerkens",
   "license": "ISC",
